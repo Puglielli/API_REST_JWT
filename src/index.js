@@ -8,7 +8,7 @@ serve.use(express.json());
 env.config();
 
 serve.get('', verifyJWT, (req, res) => {
-  res.json({ message: 'Hello World!' });
+  return res.json({ message: 'Hello World!' });
 });
 
 serve.post('/login', (req, res) => {
@@ -31,7 +31,7 @@ serve.post('/login', (req, res) => {
       });
   }
 
-  res.status(500).send('Login inválido');
+  return res.status(500).send('Login inválido');
 });
 
 serve.listen(3333);
